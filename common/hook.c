@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initiate_window.c                                  :+:      :+:    :+:   */
+/*   hook.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lyaiche <lyaiche@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/10 17:46:43 by lyaiche           #+#    #+#             */
-/*   Updated: 2022/02/10 18:02:45 by lyaiche          ###   ########.fr       */
+/*   Created: 2022/02/14 18:01:24 by lyaiche           #+#    #+#             */
+/*   Updated: 2022/02/14 18:08:45 by lyaiche          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	initiate_window(void)
+int	key_hook(int keycode, t_data *data)
 {
-	
+	if (keycode == 53)
+	{
+		write(1, "Fin du programme.\n", 18);
+		end(data);
+	}
+	return (0);
 }

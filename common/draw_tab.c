@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_tab.c                                         :+:      :+:    :+:   */
+/*   draw_tab.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lyaiche <lyaiche@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/10 13:57:38 by lyaiche           #+#    #+#             */
-/*   Updated: 2022/02/14 17:39:39 by lyaiche          ###   ########.fr       */
+/*   Created: 2022/02/16 13:51:32 by lyaiche           #+#    #+#             */
+/*   Updated: 2022/02/16 18:15:39 by lyaiche          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	free_tab(t_data *data)
+void	draw_tab(t_data *data)
 {
-	int	i;
+	float	current_pos;
+	float	next_pos;
 
-	i = -1;
-	while (++i < data->lenght)
-		ft_free(&data->map[i]);
+	current_pos = data->start;
+	next_pos = 1;
 }

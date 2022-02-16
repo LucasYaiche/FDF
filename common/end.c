@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_tab.c                                         :+:      :+:    :+:   */
+/*   end.c                                        		:+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lyaiche <lyaiche@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/10 13:57:38 by lyaiche           #+#    #+#             */
-/*   Updated: 2022/02/14 17:39:39 by lyaiche          ###   ########.fr       */
+/*   Created: 2022/02/14 17:10:41 by lyaiche           #+#    #+#             */
+/*   Updated: 2022/02/14 18:07:40 by lyaiche          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	free_tab(t_data *data)
+void	end(t_data *data)
 {
-	int	i;
-
-	i = -1;
-	while (++i < data->lenght)
-		ft_free(&data->map[i]);
+	mlx_destroy_window(data->mlx, data->win);
+	panic_button(4, -1, data);
 }

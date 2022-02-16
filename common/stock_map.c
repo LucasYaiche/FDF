@@ -6,13 +6,13 @@
 /*   By: lyaiche <lyaiche@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:23:46 by lyaiche           #+#    #+#             */
-/*   Updated: 2022/02/10 15:16:32 by lyaiche          ###   ########.fr       */
+/*   Updated: 2022/02/14 17:37:25 by lyaiche          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	stock_map(char *name, t_tab *tab)
+void	stock_map(t_data *data)
 {
 	char	*line;
 	char	**row;
@@ -20,9 +20,9 @@ void	stock_map(char *name, t_tab *tab)
 	int		i;
 	int		j;
 
-	fd = open(name, O_RDONLY);
+	fd = open(data->name, O_RDONLY);
 	if (fd == -1)
-		panic_button(1, -1, tab);
+		panic_button(1, -1, data);
 	line = "";
 	i = -1;
 	while (line != NULL)
@@ -33,13 +33,13 @@ void	stock_map(char *name, t_tab *tab)
 		{
 			row = ft_split(line, ' ');
 			if (!row)
-				panic_button(3, fd, tab);
-			tab->map[i] = malloc(sizeof(int) * (tab->width + 1));
-			if (!tab->map[i])
-				panic_button(2, -1, tab);
+				panic_button(3, fd, data);
+			data->map[i] = malloc(sizeof(int) * (data->width + 1));
+			if (!data->map[i])
+				panic_button(2, -1, data);
 			j = -1;
 			while (row[++j])
-				tab->map[i][j] = ft_atoi(row[j]);
+				data->map[i][j] = ft_atoi(row[j]);
 		}
 	}
 }

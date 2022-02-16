@@ -6,13 +6,13 @@
 /*   By: lyaiche <lyaiche@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 12:11:09 by lyaiche           #+#    #+#             */
-/*   Updated: 2022/02/10 13:57:25 by lyaiche          ###   ########.fr       */
+/*   Updated: 2022/02/14 17:40:48 by lyaiche          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	panic_button(int error, int fd, t_tab *tab)
+void	panic_button(int error, int fd, t_data *data)
 {
 	if (error == 0)
 		write(2, "arguments error.\n", 17);
@@ -27,7 +27,7 @@ void	panic_button(int error, int fd, t_tab *tab)
 	}
 	else if (error == 4)
 	{
-		free_tab(tab);
+		free_tab(data);
 	}
 	exit(1);
 }
