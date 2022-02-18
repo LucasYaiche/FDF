@@ -6,7 +6,7 @@
 /*   By: lyaiche <lyaiche@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:23:46 by lyaiche           #+#    #+#             */
-/*   Updated: 2022/02/14 17:37:25 by lyaiche          ###   ########.fr       */
+/*   Updated: 2022/02/18 11:51:21 by lyaiche          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	stock_map(t_data *data)
 			row = ft_split(line, ' ');
 			if (!row)
 				panic_button(3, fd, data);
-			data->map[i] = malloc(sizeof(int) * (data->width + 1));
+			data->map[i] = malloc(sizeof(int) * (data->length + 1));
 			if (!data->map[i])
 				panic_button(2, -1, data);
 			j = -1;

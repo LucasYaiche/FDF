@@ -6,7 +6,7 @@
 /*   By: lyaiche <lyaiche@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 14:45:05 by lyaiche           #+#    #+#             */
-/*   Updated: 2022/02/14 17:35:16 by lyaiche          ###   ########.fr       */
+/*   Updated: 2022/02/18 11:48:44 by lyaiche          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ void	ft_printtab(t_data *data)
 	int	j;
 
 	i = -1;
-	while (++i < data->lenght)
+	while (++i < data->width)
 	{
 		j = -1;
-		while (++j < data->width)
+		while (++j < data->length)
 			printf("%i ", data->map[i][j]);
 		printf("\n");
 	}
-	printf("lenght = %i\n", data->lenght);
+	printf("length = %i\n", data->length);
 	printf("width = %i\n", data->width);
 }

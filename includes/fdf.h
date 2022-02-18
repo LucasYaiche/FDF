@@ -6,7 +6,7 @@
 /*   By: lyaiche <lyaiche@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 14:57:40 by lyaiche           #+#    #+#             */
-/*   Updated: 2022/02/17 19:34:59 by lyaiche          ###   ########.fr       */
+/*   Updated: 2022/02/18 11:44:42 by lyaiche          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 typedef struct s_data{
 	int		**map;
-	int		lenght;
+	int		length;
 	int		width;
 	char	*name;
 	void	*img;

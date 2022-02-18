@@ -6,7 +6,7 @@
 /*   By: lyaiche <lyaiche@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:38:30 by lyaiche           #+#    #+#             */
-/*   Updated: 2022/02/14 17:37:48 by lyaiche          ###   ########.fr       */
+/*   Updated: 2022/02/18 11:46:42 by lyaiche          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ void	create_tab(int fd, t_data *data)
 	line = "";
 	while (line != NULL)
 	{
-		data->width = row_len(line);
+		data->length = row_len(line);
 		line = get_next_line(fd);
 		if (line)
-			data->lenght++;
+			data->width++;
 	}
 	close(fd);
-	data->map = malloc(sizeof(int *) * data->lenght + 1);
+	data->map = malloc(sizeof(int *) * data->width + 1);
 	if (!data->map)
 		panic_button(2, -1, data);
 }

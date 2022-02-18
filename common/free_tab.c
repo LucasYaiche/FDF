@@ -6,7 +6,7 @@
 /*   By: lyaiche <lyaiche@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 13:57:38 by lyaiche           #+#    #+#             */
-/*   Updated: 2022/02/14 17:39:39 by lyaiche          ###   ########.fr       */
+/*   Updated: 2022/02/18 11:47:06 by lyaiche          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ void	free_tab(t_data *data)
 	int	i;
 
 	i = -1;
-	while (++i < data->lenght)
+	while (++i < data->width)
 		ft_free(&data->map[i]);
 }
