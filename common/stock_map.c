@@ -6,7 +6,7 @@
 /*   By: lyaiche <lyaiche@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:23:46 by lyaiche           #+#    #+#             */
-/*   Updated: 2022/02/18 11:51:21 by lyaiche          ###   ########.fr       */
+/*   Updated: 2022/02/23 12:05:14 by lyaiche          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	stock_map(t_data *data)
 			j = -1;
 			while (row[++j])
 				data->map[i][j] = ft_atoi(row[j]);
+			free(line);
 		}
 	}
 }

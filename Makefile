@@ -24,7 +24,7 @@ NAME = fdf
 CFLAGS = -Wall -Wextra -Werror ${SANIFLAG} -D BUFFER_SIZE=${BUFFER_SIZE}
 SANIFLAG = -fsanitize=address -g
 MLXFLAGS = -lmlx -framework OpenGL -framework AppKit
-BUFFER_SIZE = 1000
+BUFFER_SIZE = 10000
 
 #=========#
 #Commandes#

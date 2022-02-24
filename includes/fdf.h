@@ -6,7 +6,7 @@
 /*   By: lyaiche <lyaiche@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 14:57:40 by lyaiche           #+#    #+#             */
-/*   Updated: 2022/02/18 11:44:42 by lyaiche          ###   ########.fr       */
+/*   Updated: 2022/02/24 18:36:34 by lyaiche          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <stdio.h>
+# include <math.h>
 
 typedef struct s_data{
 	int		**map;
@@ -26,16 +27,23 @@ typedef struct s_data{
 	int		width;
 	char	*name;
 	void	*img;
-	int		*addr;
+	char	*addr;
 	int		bits_per_pixel;
 	int		line_bytes;
 	int		endian;
 	void	*mlx;
 	void	*win;
-	int		middle;
-	int		start;
 	int		init_x;
 	int		init_y;
+	float	next_x;
+	float	next_y;
+	int		color;
+	int		zoom;
+	int		x_step;
+	int		y_step;
+	float	height;
+	float	x_rotate;
+	float	y_rotate;
 }				t_data;
 
 void	ft_printtab(t_data *data);
@@ -55,10 +63,11 @@ void	stock_map(t_data *data);
 void	ft_free(int **ptr);
 void	free_tab(t_data *data);
 void	ft_free(int **ptr);
-size_t	row_len(char *row);
+size_t	row_len(char *row, t_data *data);
 void	initiate_window(t_data *tab);
 void	end(t_data *data);
 int		key_hook(int keycode, t_data *data);
 void	draw_tab(t_data *data);
+void	put_pixel(int x, int y, int color, t_data *data);
 
 #endif
