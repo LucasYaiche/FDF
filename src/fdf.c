@@ -6,7 +6,7 @@
 /*   By: lyaiche <lyaiche@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 15:10:51 by lyaiche           #+#    #+#             */
-/*   Updated: 2022/02/24 18:37:00 by lyaiche          ###   ########.fr       */
+/*   Updated: 2022/02/28 18:13:02 by lyaiche          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(int argc, char **argv)
 	data.x_step = 0;
 	data.y_step = 0;
 	data.height = 0.1;
-	data.x_rotate = 0.8;
+	data.x_rotate = 1;
 	data.y_rotate = 0.8;
 	initiate_window(&data);
 	mlx_do_key_autorepeaton(data.mlx);

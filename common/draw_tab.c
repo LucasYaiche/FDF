@@ -6,7 +6,7 @@
 /*   By: lyaiche <lyaiche@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 13:51:32 by lyaiche           #+#    #+#             */
-/*   Updated: 2022/02/24 18:43:55 by lyaiche          ###   ########.fr       */
+/*   Updated: 2022/02/28 18:32:04 by lyaiche          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,6 @@ void	perspective(float *x, float *y, int *z, t_data *data)
 	*z *= data->height;
 	*x *= data->zoom;
 	*y *= data->zoom;
-	if (data->x_rotate == -1)
-		data->x_rotate = 0.95;
-	if (data->x_rotate == 1)
-		data->x_rotate = -0.95;
-	if (data->y_rotate == -1)
-		data->y_rotate = 0.95;
-	if (data->y_rotate == 1)
-		data->y_rotate = -0.95;
 	*x = (*x - *y) * cos(data->x_rotate);
 	*y = (*x + *y) * sin(data->y_rotate) - *z;
 }
@@ -51,10 +43,10 @@ void	draw_line(float current_x, float current_y, t_data *data)
 
 	perspective(&current_x, &current_y, &current_z, data);
 	perspective(&data->next_x, &data->next_y, &next_z, data);
-	current_x += 1000;
-	current_y += 100;
-	data->next_x += 1000;
-	data->next_y += 100;
+	current_x += 1000 + data->x_step;
+	current_y += 100 + data->y_step;
+	data->next_x += 1000 + data->x_step;
+	data->next_y += 100 + data->y_step;
 	dx = data->next_x - current_x;
 	dy = data->next_y - current_y;
 	max = fmax(fabs(dx), fabs(dy));
