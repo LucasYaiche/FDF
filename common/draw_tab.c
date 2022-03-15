@@ -6,7 +6,7 @@
 /*   By: lyaiche <lyaiche@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 13:51:32 by lyaiche           #+#    #+#             */
-/*   Updated: 2022/02/28 18:32:04 by lyaiche          ###   ########.fr       */
+/*   Updated: 2022/03/15 20:16:00 by lyaiche          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,23 @@ void	put_pixel(int x, int y, int color, t_data *data)
 
 void	perspective(float *x, float *y, int *z, t_data *data)
 {	
+	int	temp_x;
+	int	temp_y;
+
 	*z = data->map[(int)*y][(int)*x];
 	*z *= data->zoom;
 	*z *= data->height;
 	*x *= data->zoom;
 	*y *= data->zoom;
-	*x = (*x - *y) * cos(data->x_rotate);
-	*y = (*x + *y) * sin(data->y_rotate) - *z;
+	temp_x = *x;
+	temp_y = *y;
+	*x = (temp_x - 1920 / 2) * cos(data->rotate)
+		- (temp_y - 1080 / 2) * sin(data->rotate);
+	*y = (temp_x - 1920 / 2) * (sin(data->rotate)
+			+ (temp_y - 1080 / 2) * cos(data->rotate));
+	*x = (*x - *y) * cos(1);
+	*y = (*x + *y) * sin(0.8) - *z;
+	write(1, "ici\n", 4);
 }
 
 void	draw_line(float current_x, float current_y, t_data *data)
@@ -43,10 +53,10 @@ void	draw_line(float current_x, float current_y, t_data *data)
 
 	perspective(&current_x, &current_y, &current_z, data);
 	perspective(&data->next_x, &data->next_y, &next_z, data);
-	current_x += 1000 + data->x_step;
-	current_y += 100 + data->y_step;
-	data->next_x += 1000 + data->x_step;
-	data->next_y += 100 + data->y_step;
+	current_x += data->x_step;
+	current_y += data->y_step;
+	data->next_x += data->x_step;
+	data->next_y += data->y_step;
 	dx = data->next_x - current_x;
 	dy = data->next_y - current_y;
 	max = fmax(fabs(dx), fabs(dy));
@@ -61,6 +71,7 @@ void	draw_line(float current_x, float current_y, t_data *data)
 		current_x += dx;
 		current_y += dy;
 	}
+	// printf("x: %f\ny: %f\n", current_x, current_y);
 }
 
 void	draw_tab(t_data *data)
