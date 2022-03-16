@@ -6,7 +6,7 @@
 /*   By: lyaiche <lyaiche@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 13:51:32 by lyaiche           #+#    #+#             */
-/*   Updated: 2022/03/15 20:16:00 by lyaiche          ###   ########.fr       */
+/*   Updated: 2022/03/16 13:32:20 by lyaiche          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void	perspective(float *x, float *y, int *z, t_data *data)
 	temp_y = *y;
 	*x = (temp_x - 1920 / 2) * cos(data->rotate)
 		- (temp_y - 1080 / 2) * sin(data->rotate);
-	*y = (temp_x - 1920 / 2) * (sin(data->rotate)
-			+ (temp_y - 1080 / 2) * cos(data->rotate));
+	*y = (temp_x - 1920 / 2) * sin(data->rotate)
+		+ (temp_y - 1080 / 2) * cos(data->rotate);
 	*x = (*x - *y) * cos(1);
 	*y = (*x + *y) * sin(0.8) - *z;
 	write(1, "ici\n", 4);
