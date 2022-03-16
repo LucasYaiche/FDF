@@ -6,7 +6,7 @@
 /*   By: lyaiche <lyaiche@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 13:51:32 by lyaiche           #+#    #+#             */
-/*   Updated: 2022/03/16 13:32:20 by lyaiche          ###   ########.fr       */
+/*   Updated: 2022/03/16 15:36:07 by lyaiche          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,15 @@ void	perspective(float *x, float *y, int *z, t_data *data)
 	*y *= data->zoom;
 	temp_x = *x;
 	temp_y = *y;
-	*x = (temp_x - 1920 / 2) * cos(data->rotate)
-		- (temp_y - 1080 / 2) * sin(data->rotate);
-	*y = (temp_x - 1920 / 2) * sin(data->rotate)
-		+ (temp_y - 1080 / 2) * cos(data->rotate);
-	*x = (*x - *y) * cos(1);
-	*y = (*x + *y) * sin(0.8) - *z;
-	write(1, "ici\n", 4);
+	if (data->perspect)
+	{
+		*x = temp_x * cos(data->rotate_x)
+			- temp_y * sin(data->rotate_y);
+		*y = temp_x * sin(data->rotate_x)
+			+ temp_y * cos(data->rotate_y);
+		*x = (*x - *y) * cos(data->orientation_x);
+		*y = (*x + *y) * sin(data->orientation_x) - *z * cos(data->rotate_y);
+	}
 }
 
 void	draw_line(float current_x, float current_y, t_data *data)
@@ -71,7 +73,6 @@ void	draw_line(float current_x, float current_y, t_data *data)
 		current_x += dx;
 		current_y += dy;
 	}
-	// printf("x: %f\ny: %f\n", current_x, current_y);
 }
 
 void	draw_tab(t_data *data)

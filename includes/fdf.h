@@ -6,7 +6,7 @@
 /*   By: lyaiche <lyaiche@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 14:57:40 by lyaiche           #+#    #+#             */
-/*   Updated: 2022/03/15 18:38:19 by lyaiche          ###   ########.fr       */
+/*   Updated: 2022/03/16 15:11:04 by lyaiche          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,11 @@ typedef struct s_data{
 	int		x_step;
 	int		y_step;
 	float	height;
-	float	rotate;
+	float	rotate_x;
+	float	rotate_y;
+	float	orientation_x;
+	float	orientation_y;
+	int		perspect;
 }				t_data;
 
 void	ft_printtab(t_data *data);
