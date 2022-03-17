@@ -6,7 +6,7 @@ FDF_SRC = fdf.c
 
 COMMON_SRC = create_tab.c ft_atoi.c ft_split.c ft_strlen.c get_next_line.c get_next_line_utils.c \
 				panic_button.c stock_map.c free_tab.c ft_free.c row_len.c ft_printtab.c \
-				initiate_window.c end.c hook.c draw_tab.c
+				initiate_window.c end.c hook.c draw_tab.c color.c
 				
 COMMON_OBJ = ${addprefix ${OBJDIR}, ${COMMON_SRC:%.c=%.o}}
 

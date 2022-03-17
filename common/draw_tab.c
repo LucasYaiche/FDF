@@ -6,7 +6,7 @@
 /*   By: lyaiche <lyaiche@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 13:51:32 by lyaiche           #+#    #+#             */
-/*   Updated: 2022/03/16 15:36:07 by lyaiche          ###   ########.fr       */
+/*   Updated: 2022/03/17 13:54:47 by lyaiche          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	draw_line(float current_x, float current_y, t_data *data)
 	{
 		if (current_x < 1920 && current_y < 1080
 			&& current_x > 0 && current_y > 0)
-			put_pixel(current_x, current_y, 0xFFFFFF, data);
+			put_pixel(current_x, current_y, color(data), data);
 		current_x += dx;
 		current_y += dy;
 	}
