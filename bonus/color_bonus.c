@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.c                                            :+:      :+:    :+:   */
+/*   color_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lyaiche <lyaiche@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:51:36 by lyaiche           #+#    #+#             */
-/*   Updated: 2022/03/17 14:06:03 by lyaiche          ###   ########.fr       */
+/*   Updated: 2022/03/17 16:57:26 by lyaiche          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "fdf_bonus.h"
 
 int	color(t_data *data)
 {
@@ -37,5 +37,5 @@ int	color(t_data *data)
 		data->color = 0;
 		return (0xFF8700);
 	}
-	return (0);
+	return (0xFFFFFF);
 }

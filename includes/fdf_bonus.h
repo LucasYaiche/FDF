@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hook.c                                             :+:      :+:    :+:   */
+/*   fdf_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lyaiche <lyaiche@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/14 18:01:24 by lyaiche           #+#    #+#             */
-/*   Updated: 2022/03/17 15:38:50 by lyaiche          ###   ########.fr       */
+/*   Created: 2022/03/17 15:23:59 by lyaiche           #+#    #+#             */
+/*   Updated: 2022/03/17 16:01:34 by lyaiche          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#ifndef FDF_BONUS_H
+# define FDF_BONUS_H
 
-int	key_hook(int keycode, t_data *data)
-{
-	if (keycode == 53)
-	{
-		write(1, "Fin du programme.\n", 18);
-		end(data);
-	}
-	mlx_clear_window(data->mlx, data->win);
-	initiate_window(data);
-	return (0);
-}
+# include "fdf.h"
+
+int		key_hook_bonus(int keycode, t_data *data);
+void	draw_tab_bonus(t_data *data);
+void	initiate_window_bonus(t_data *data);
+int		color(t_data *data);
+
+#endif

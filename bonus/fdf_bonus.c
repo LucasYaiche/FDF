@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   fdf_bonus.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lyaiche <lyaiche@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/08 15:10:51 by lyaiche           #+#    #+#             */
-/*   Updated: 2022/03/17 16:17:22 by lyaiche          ###   ########.fr       */
+/*   Created: 2022/03/17 15:28:26 by lyaiche           #+#    #+#             */
+/*   Updated: 2022/03/17 16:57:47 by lyaiche          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "fdf_bonus.h"
 
 void	initiate_value(t_data *data)
 {
@@ -25,6 +25,22 @@ void	initiate_value(t_data *data)
 	data->orientation_x = 1;
 	data->orientation_y = 0.8;
 	data->perspect = 1;
+	data->color = 0;
+}
+
+void	printinfo(void)
+{
+	write(1, "Move structure : arrow keys\n", 28);
+	write(1, "Increase height : +/- keys\n", 27);
+	write(1, "Zoom : 9/0\n", 11);
+	write(1, "Spin structure : Q/E\n", 21);
+	write(1, "Horizontal movement : A/D\n", 26);
+	write(1, "Vertical movement : W/S\n", 24);
+	write(1, "Change color : C\n", 17);
+	write(1, "Reset : 1\n", 10);
+	write(1, "Horizontal POV : 2\n", 19);
+	write(1, "Upper POV : 3\n", 14);
+	write(1, "Best POV : 4\n", 13);
 }
 
 int	main(int argc, char **argv)
@@ -42,7 +58,9 @@ int	main(int argc, char **argv)
 	stock_map(&data);
 	close(fd);
 	initiate_value(&data);
-	initiate_window(&data);
-	mlx_hook(data.win, 2, 1L << 0, key_hook, &data);
+	printinfo();
+	initiate_window_bonus(&data);
+	mlx_do_key_autorepeaton(data.mlx);
+	mlx_hook(data.win, 2, 1L << 0, key_hook_bonus, &data);
 	mlx_loop(data.mlx);
 }

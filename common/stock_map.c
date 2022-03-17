@@ -6,24 +6,18 @@
 /*   By: lyaiche <lyaiche@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:23:46 by lyaiche           #+#    #+#             */
-/*   Updated: 2022/02/23 12:05:14 by lyaiche          ###   ########.fr       */
+/*   Updated: 2022/03/17 17:13:43 by lyaiche          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	stock_map(t_data *data)
+void	stock_map_2(int fd, char *line, t_data *data)
 {
-	char	*line;
-	char	**row;
-	int		fd;
 	int		i;
 	int		j;
+	char	**row;
 
-	fd = open(data->name, O_RDONLY);
-	if (fd == -1)
-		panic_button(1, -1, data);
-	line = "";
 	i = -1;
 	while (line != NULL)
 	{
@@ -43,4 +37,16 @@ void	stock_map(t_data *data)
 			free(line);
 		}
 	}
+}
+
+void	stock_map(t_data *data)
+{
+	char	*line;
+	int		fd;
+
+	fd = open(data->name, O_RDONLY);
+	if (fd == -1)
+		panic_button(1, -1, data);
+	line = "";
+	stock_map_2(fd, line, data);
 }

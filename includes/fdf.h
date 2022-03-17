@@ -6,7 +6,7 @@
 /*   By: lyaiche <lyaiche@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 14:57:40 by lyaiche           #+#    #+#             */
-/*   Updated: 2022/03/17 14:01:58 by lyaiche          ###   ########.fr       */
+/*   Updated: 2022/03/17 16:35:21 by lyaiche          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,7 @@ void	ft_free(int **ptr);
 size_t	row_len(char *row, t_data *data);
 void	initiate_window(t_data *tab);
 void	end(t_data *data);
-int		key_hook(int keycode, t_data *data);
 void	draw_tab(t_data *data);
-void	put_pixel(int x, int y, int color, t_data *data);
-int		color(t_data *data);
+int		key_hook(int keycode, t_data *data);
 
 #endif
