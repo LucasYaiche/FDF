@@ -12,8 +12,9 @@
 
 #include "fdf.h"
 
-void	end(t_data *data)
+int	end(t_data *data)
 {
 	mlx_destroy_window(data->mlx, data->win);
 	panic_button(4, -1, data);
+	return (0);
 }

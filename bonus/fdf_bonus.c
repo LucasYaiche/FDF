@@ -6,7 +6,7 @@
 /*   By: lyaiche <lyaiche@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 15:28:26 by lyaiche           #+#    #+#             */
-/*   Updated: 2022/03/17 16:57:47 by lyaiche          ###   ########.fr       */
+/*   Updated: 2022/03/18 15:15:49 by lyaiche          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,6 @@ int	main(int argc, char **argv)
 	initiate_window_bonus(&data);
 	mlx_do_key_autorepeaton(data.mlx);
 	mlx_hook(data.win, 2, 1L << 0, key_hook_bonus, &data);
+	mlx_hook(data.win, 17, 1L << 5, end, &data);
 	mlx_loop(data.mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: lyaiche <lyaiche@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:23:46 by lyaiche           #+#    #+#             */
-/*   Updated: 2022/03/17 17:13:43 by lyaiche          ###   ########.fr       */
+/*   Updated: 2022/03/18 15:54:08 by lyaiche          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,5 @@ void	stock_map(t_data *data)
 		panic_button(1, -1, data);
 	line = "";
 	stock_map_2(fd, line, data);
+	close(fd);
 }
