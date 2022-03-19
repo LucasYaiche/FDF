@@ -6,7 +6,7 @@
 /*   By: lyaiche <lyaiche@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 14:57:40 by lyaiche           #+#    #+#             */
-/*   Updated: 2022/03/18 16:32:38 by lyaiche          ###   ########.fr       */
+/*   Updated: 2022/03/19 18:14:32 by lyaiche          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include <limits.h>
 # include <stdio.h>
 # include <math.h>
-# include "../wraloc/wraloc.h"
 
 typedef struct s_data{
 	int		**map;
@@ -72,5 +71,6 @@ void	initiate_window(t_data *tab);
 int		end(t_data *data);
 void	draw_tab(t_data *data);
 int		key_hook(int keycode, t_data *data);
+void	free_row(char **row, int len);
 
 #endif

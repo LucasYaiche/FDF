@@ -6,7 +6,7 @@
 /*   By: lyaiche <lyaiche@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 13:18:32 by lyaiche           #+#    #+#             */
-/*   Updated: 2022/03/17 17:09:23 by lyaiche          ###   ########.fr       */
+/*   Updated: 2022/03/19 17:18:52 by lyaiche          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ static char	**fill_matrix(char const *str, char compared, char **result,
 	unsigned int	j;
 	unsigned int	word_len;
 
-	i = 0;
+	i = -1;
 	j = 0;
-	while (i < nbr_words)
+	while (++i < nbr_words)
 	{
 		while (str[j] && check_char(str[j], compared))
 			j++;
@@ -74,13 +74,13 @@ static char	**fill_matrix(char const *str, char compared, char **result,
 		result[i] = malloc(sizeof(char) * (word_len + 1));
 		if (!result[i])
 		{
-			while (result[i])
-				free(result[--i]);
+			while (i > 0)
+				free(result[i--]);
+			free(result);
 			return (NULL);
 		}
 		ft_strncpy(result[i], &str[j], word_len);
 		j += word_len;
-		i++;
 	}
 	return (result);
 }

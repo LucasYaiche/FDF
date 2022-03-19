@@ -6,7 +6,7 @@
 /*   By: lyaiche <lyaiche@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:38:30 by lyaiche           #+#    #+#             */
-/*   Updated: 2022/03/18 15:53:45 by lyaiche          ###   ########.fr       */
+/*   Updated: 2022/03/19 17:50:38 by lyaiche          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	create_tab(int fd, t_data *data)
 		free(line);
 		line = get_next_line(fd);
 	}
+	if (line)
+		free(line);
 	close(fd);
 	data->map = malloc(sizeof(int *) * data->width);
 	if (!data->map)

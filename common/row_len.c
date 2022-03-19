@@ -6,7 +6,7 @@
 /*   By: lyaiche <lyaiche@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 14:36:00 by lyaiche           #+#    #+#             */
-/*   Updated: 2022/02/24 12:59:54 by lyaiche          ###   ########.fr       */
+/*   Updated: 2022/03/19 17:56:49 by lyaiche          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,15 @@ size_t	row_len(char *row, t_data *data)
 	int		j;
 	char	**result;
 
-	i = 0;
-	result = ft_split(row, ' ');
 	if (!row)
 		panic_button(3, -1, data);
+	result = ft_split(row, ' ');
+	if (!result)
+		panic_button(2, -1, data);
+	i = 0;
 	while (result[i])
 		i++;
 	j = i;
-	while (result[j])
-		free(result[--j]);
+	free_row(result, i);
 	return (i);
 }
